@@ -1,0 +1,50 @@
+{
+  "$defs": {
+    "ErrorInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "title": "ErrorInfo",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "success": {
+      "const": false,
+      "default": false,
+      "title": "Success",
+      "type": "boolean"
+    },
+    "model_id": {
+      "default": null,
+      "title": "Model Id",
+      "type": "null"
+    },
+    "files": {
+      "default": null,
+      "title": "Files",
+      "type": "null"
+    },
+    "error": {
+      "$ref": "#/$defs/ErrorInfo"
+    }
+  },
+  "required": [
+    "error"
+  ],
+  "title": "ErrorResponse",
+  "type": "object"
+}

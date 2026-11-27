@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "ModelFiles": {
+      "additionalProperties": false,
+      "properties": {
+        "stl": {
+          "pattern": "^/api/v1/files/[0-9a-f-]{36}/stl$",
+          "title": "Stl",
+          "type": "string"
+        },
+        "step": {
+          "pattern": "^/api/v1/files/[0-9a-f-]{36}/step$",
+          "title": "Step",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stl",
+        "step"
+      ],
+      "title": "ModelFiles",
+      "type": "object"
+    },
+    "ModelSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "model_type": {
+          "const": "box",
+          "title": "Model Type",
+          "type": "string"
+        },
+        "unit": {
+          "const": "mm",
+          "default": "mm",
+          "title": "Unit",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/Parameters"
+        }
+      },
+      "required": [
+        "model_type",
+        "parameters"
+      ],
+      "title": "ModelSpec",
+      "type": "object"
+    },
+    "Parameters": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Length",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Width",
+          "type": "number"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Height",
+          "type": "number"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Parameters",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "model_type": {
+      "const": "box",
+      "title": "Model Type",
+      "type": "string"
+    },
+    "unit": {
+      "const": "mm",
+      "default": "mm",
+      "title": "Unit",
+      "type": "string"
+    },
+    "parameters": {
+      "$ref": "#/$defs/Parameters"
+    },
+    "success": {
+      "const": true,
+      "default": true,
+      "title": "Success",
+      "type": "boolean"
+    },
+    "model_id": {
+      "format": "uuid",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "files": {
+      "$ref": "#/$defs/ModelFiles"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "error": {
+      "default": null,
+      "title": "Error",
+      "type": "null"
+    },
+    "ai_mode": {
+      "anyOf": [
+        {
+          "enum": [
+            "mock",
+            "real"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ai Mode"
+    },
+    "cad_mode": {
+      "enum": [
+        "mock",
+        "real"
+      ],
+      "title": "Cad Mode",
+      "type": "string"
+    },
+    "requested_spec": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ModelSpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "model_type",
+    "parameters",
+    "model_id",
+    "files",
+    "cad_mode"
+  ],
+  "title": "GenerateResponse",
+  "type": "object"
+}
