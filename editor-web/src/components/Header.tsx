@@ -1,4 +1,4 @@
-import { Languages, Monitor, Moon, Sun } from "lucide-react";
+import { Bot, Languages, Monitor, Moon, Sun } from "lucide-react";
 
 import type { ThemePreference } from "@/lib/theme";
 
@@ -26,6 +26,8 @@ export function Header({
   const { t, language } = useI18n();
   const failing = status.startsWith("error");
   const nextLanguage = LANGUAGES[(LANGUAGES.findIndex((item) => item.code === language) + 1) % LANGUAGES.length];
+  const agentUrl = new URL(window.location.href);
+  agentUrl.searchParams.set("workspace", "agent");
   return (
     <header className="flex h-11 shrink-0 items-center gap-3 border-b-2 border-border bg-background px-3">
       <span className="text-[13px] font-bold uppercase tracking-[0.14em]">SimpleCAD</span>
@@ -48,6 +50,9 @@ export function Header({
       >
         {status}
       </span>
+      <Button size="sm" variant="outline" asChild>
+        <a href={agentUrl.pathname + agentUrl.search + agentUrl.hash}><Bot /> CAD Agent</a>
+      </Button>
       <Button
         size="sm"
         variant="ghost"
