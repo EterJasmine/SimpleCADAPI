@@ -1,0 +1,6 @@
+# Binary runtime baseline; source development has separate instructions.
+simplecadapi[editor]==2.3.0.post1
+marimo>=0.25,<0.26
+pydantic>=2,<3
+pytest
+httpx

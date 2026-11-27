@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "model_type": "box",
+  "unit": "mm",
+  "parameters": {"length": 100, "width": 60, "height": 10}
+}
