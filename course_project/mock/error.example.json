@@ -1,0 +1,9 @@
+{
+  "success": false,
+  "model_id": null,
+  "files": null,
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "请求不符合协议，请检查零件类型和正数尺寸。"
+  }
+}

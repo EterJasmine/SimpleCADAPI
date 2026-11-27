@@ -1,0 +1,7 @@
+# Resolved against requirements.lock.txt; deliberately excludes the CAD SDK.
+pydantic
+starlette
+uvicorn
+httpx
+pytest
+jsonschema

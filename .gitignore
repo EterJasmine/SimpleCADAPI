@@ -97,6 +97,8 @@ phase2-contract-review.md
 # the C++ extension built in place (see src/cpp/bindings/python/CMakeLists.txt)
 course_project/outputs/
 course_project/workspace/
+!course_project/mock/demo.step
+!course_project/mock/demo.stl
 src/simplecadapi/_cpp/*.so
 src/simplecadapi/_cpp/*.pyd
 src/simplecadapi/_cpp/*.dylib

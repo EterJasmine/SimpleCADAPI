@@ -1,6 +1,4 @@
 {
-  "success": true,
-  "model_id": "11e0cc5a-ec53-40d2-b8f9-f37a2bf6ed15",
   "schema_version": "1.0",
   "model_type": "box",
   "unit": "mm",
@@ -9,10 +7,27 @@
     "width": 60.0,
     "height": 10.0
   },
+  "success": true,
+  "model_id": "b06b5025-6b97-4736-b1e4-e1b8cd78a0eb",
   "files": {
-    "stl": "/api/v1/files/11e0cc5a-ec53-40d2-b8f9-f37a2bf6ed15/stl",
-    "step": "/api/v1/files/11e0cc5a-ec53-40d2-b8f9-f37a2bf6ed15/step"
+    "stl": "/api/v1/files/b06b5025-6b97-4736-b1e4-e1b8cd78a0eb/stl",
+    "step": "/api/v1/files/b06b5025-6b97-4736-b1e4-e1b8cd78a0eb/step"
   },
-  "warnings": [],
-  "error": null
+  "warnings": [
+    "AI 演示模式：未解析文字，使用固定的 100×60×10 mm 长方体参数。",
+    "CAD 模拟模式：文件是固定的 100×60×10 mm 测试模型，不随请求尺寸变化。"
+  ],
+  "error": null,
+  "ai_mode": "mock",
+  "cad_mode": "mock",
+  "requested_spec": {
+    "schema_version": "1.0",
+    "model_type": "box",
+    "unit": "mm",
+    "parameters": {
+      "length": 100.0,
+      "width": 60.0,
+      "height": 10.0
+    }
+  }
 }

@@ -1,0 +1,124 @@
+{
+  "$defs": {
+    "CadFiles": {
+      "additionalProperties": false,
+      "properties": {
+        "stl": {
+          "format": "path",
+          "title": "Stl",
+          "type": "string"
+        },
+        "step": {
+          "format": "path",
+          "title": "Step",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stl",
+        "step"
+      ],
+      "title": "CadFiles",
+      "type": "object"
+    },
+    "ModelSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "model_type": {
+          "const": "box",
+          "title": "Model Type",
+          "type": "string"
+        },
+        "unit": {
+          "const": "mm",
+          "default": "mm",
+          "title": "Unit",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/Parameters"
+        }
+      },
+      "required": [
+        "model_type",
+        "parameters"
+      ],
+      "title": "ModelSpec",
+      "type": "object"
+    },
+    "Parameters": {
+      "additionalProperties": false,
+      "properties": {
+        "length": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Length",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Width",
+          "type": "number"
+        },
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 10000,
+          "title": "Height",
+          "type": "number"
+        }
+      },
+      "required": [
+        "length",
+        "width",
+        "height"
+      ],
+      "title": "Parameters",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Internal artifact contract: no HTTP addresses.",
+  "properties": {
+    "model_id": {
+      "format": "uuid",
+      "title": "Model Id",
+      "type": "string"
+    },
+    "spec": {
+      "$ref": "#/$defs/ModelSpec"
+    },
+    "files": {
+      "$ref": "#/$defs/CadFiles"
+    },
+    "cad_mode": {
+      "enum": [
+        "mock",
+        "real"
+      ],
+      "title": "Cad Mode",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "model_id",
+    "spec",
+    "files",
+    "cad_mode"
+  ],
+  "title": "CadResult",
+  "type": "object"
+}

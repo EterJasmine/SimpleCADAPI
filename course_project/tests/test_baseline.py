@@ -6,8 +6,8 @@ from course_project import backend
 
 @pytest.fixture
 def client(tmp_path, monkeypatch):
-    monkeypatch.setattr(backend, "OUTPUT_DIR", tmp_path)
-    with TestClient(backend.app) as client:
+    app = backend.create_app(backend.Settings(cad_mode="real", output_dir=tmp_path))
+    with TestClient(app) as client:
         yield client
 
 
